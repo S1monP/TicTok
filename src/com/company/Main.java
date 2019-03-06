@@ -11,6 +11,7 @@ public class Main {
         int a = 0, y = 0, x = 0, count=0;
         boolean EndGame = true, xod = true;
         char fild[][] = new char[3][3];
+        
         System.out.println("Выберите режим игры: " + "\n1) Против второго игрока" + "\n2) Против компьютера");
         a = scanner.nextInt()-1;
         if (a == 1) {
