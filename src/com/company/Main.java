@@ -12,27 +12,27 @@ public class Main {
         boolean EndGame = true, xod = true;
         char fild[][] = new char[3][3];
         System.out.println("Выберите режим игры: " + "\n1) Против второго игрока" + "\n2) Против компьютера");
-        a = scanner.nextInt();
+        a = scanner.nextInt()-1;
         if (a == 1) {
             while (!checkVictory(fild)) {
                 xod = true;
                 System.out.println("Ход игрока X" + "\nВведите координаты, с начала строку потом столбец");
-                x = scanner.nextInt();
-                y = scanner.nextInt();
+                x = scanner.nextInt()-1;
+                y = scanner.nextInt()-1;
                 while (xod) {
-                    if (x < 3 && y < 3) {
+                    if (x < 3 && y < 3 && x >= 0 && y >= 0 ) {
                         if (fild[x][y] == 0) {
                             fild[x][y] = 'X';
                             xod = false;
                         } else {
                             System.out.println("Поле занято!!!" + "\nПопробуй еще" + "\nВведите координаты, с начала строку потом столбец");
-                            x = scanner.nextInt();
-                            y = scanner.nextInt();
+                            x = scanner.nextInt()-1;
+                            y = scanner.nextInt()-1;
                         }
                     } else {
                         System.out.println("Это не являеться координатой" + "\nПопробуй еще" + "\nВведите координаты, с начала строку потом столбец");
-                        x = scanner.nextInt();
-                        y = scanner.nextInt();
+                        x = scanner.nextInt()-1;
+                        y = scanner.nextInt()-1;
                     }
                     vuvod(fild);
                     count++;
@@ -41,22 +41,22 @@ public class Main {
                 if (count==9)break;
                 xod = true;
                 System.out.println("Ход игрока O" + "\nВведите координаты, с начала строку потом столбец");
-                x = scanner.nextInt();
-                y = scanner.nextInt();
+                x = scanner.nextInt()-1;
+                y = scanner.nextInt()-1;
                 while (xod) {
-                    if (x < 3 && y < 3) {
+                    if (x < 3 && y < 3  && x >= 0 && y >= 0) {
                         if (fild[x][y] == 0) {
                             fild[x][y] = 'O';
                             xod = false;
                         } else {
                             System.out.println("Поле занято!!!" + "\nПопробуй еще" + "\nВведите координаты, с начала строку потом столбец");
-                            x = scanner.nextInt();
-                            y = scanner.nextInt();
+                            x = scanner.nextInt()-1;
+                            y = scanner.nextInt()-1;
                         }
                     } else {
                         System.out.println("Это не являеться координатой" + "\nПопробуй еще" + "\nВведите координаты, с начала строку потом столбец");
-                        x = scanner.nextInt();
-                        y = scanner.nextInt();
+                        x = scanner.nextInt()-1;
+                        y = scanner.nextInt()-1;
                     }
                     vuvod(fild);
                     count++;
@@ -76,38 +76,41 @@ public class Main {
             while (!checkVictory(fild)) {
                 xod = true;
                 System.out.println("Ход игрока X" + "\nВведите координаты, с начала строку потом столбец");
-                x = scanner.nextInt();
-                y = scanner.nextInt();
+                x = scanner.nextInt()-1;
+                y = scanner.nextInt()-1;
                 while (xod) {
-                    if (x < 3 && y < 3) {
+                    if (x < 3 && y < 3 && x >= 0 && y >= 0) {
                         if (fild[x][y] == 0) {
                             fild[x][y] = 'X';
                             xod = false;
                         } else {
                             System.out.println("Поле занято!!!" + "\nПопробуй еще" + "\nВведите координаты, с начала строку потом столбец");
-                            x = scanner.nextInt();
-                            y = scanner.nextInt();
+                            x = scanner.nextInt()-1;
+                            y = scanner.nextInt()-1;
                         }
                     } else {
                         System.out.println("Это не являеться координатой" + "\nПопробуй еще" + "\nВведите координаты, с начала строку потом столбец");
-                        x = scanner.nextInt();
-                        y = scanner.nextInt();
+                        x = scanner.nextInt()-1;
+                        y = scanner.nextInt()-1;
                     }
-                    vuvod(fild);
+
                 }
+                vuvod(fild);
                 if(checkVictory(fild))break;
                 xod = true;
+                System.out.println("     Ход компьютера   ");
                 while (xod) {
-                    System.out.println("     Ход компьютера   ");
                     x = random.nextInt(3);
                     y = random.nextInt(3);
                     if (fild[x][y]==0){
                         fild[x][y]='O';
                         xod = false;
                     }
-                    vuvod(fild);
+
                 }
+
             }
+            vuvod(fild);
         }
     }
 
